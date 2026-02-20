@@ -1,0 +1,15 @@
+<!-- ============================================================
+     Q-Box — _partials/footer.html
+     공통 푸터 partial
+     Thymeleaf: th:replace="~{_partials/footer :: footer}"
+     ============================================================ -->
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <p>&copy; 2025 Q-Box. 질문을 쌓아두면, 언젠가 누군가 답해주는 질문 저장소.</p>
+    <p>
+      <!-- /* THYMELEAF: 동적 연도 — th:text="${#dates.format(#dates.createNow(), 'yyyy')}" */ -->
+      지식 공유 커뮤니티
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- /* THYMELEAF: <html lang="ko" xmlns:th="http://www.thymeleaf.org"> */ -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q-Box — 질문 저장소</title>
+  <link rel="stylesheet" href="../static/css/app.css" />
+  <!-- /* THYMELEAF: th:href="@{../static/css/app.css}" */ -->
+</head>
+<body>
+
+  <!-- ==================== HEADER (partial include) ==================== -->
+  <!-- /* THYMELEAF: <div th:replace="~{_partials/header :: header}"></div> */ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="home.html" class="site-logo" aria-label="Q-Box 홈으로 이동">
+        <span class="logo-icon" aria-hidden="true">Q</span>
+        <span>Q-Box</span>
+      </a>
+      <nav class="nav-desktop" aria-label="주요 메뉴">
+        <a href="home.html" class="nav-link active">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>홈</span>
+        </a>
+        <a href="form.html" class="nav-link">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <span>질문하기</span>
+        </a>
+        <a href="signup.html" class="nav-link">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          <span>회원가입</span>
+        </a>
+        <a href="login.html" class="nav-link">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span>로그인</span>
+        </a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="다크모드 전환">
+          <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button type="button" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="메뉴 열기/닫기">
+          <svg class="icon-hamburger" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="icon-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-nav" class="nav-mobile" aria-label="모바일 메뉴">
+      <a href="home.html" class="nav-link active"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>홈</span></a>
+      <a href="form.html" class="nav-link"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>질문하기</span></a>
+      <a href="signup.html" class="nav-link"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg><span>회원가입</span></a>
+      <a href="login.html" class="nav-link"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg><span>로그인</span></a>
+    </nav>
+  </header>
+
+  <!-- ==================== TOAST AREA ==================== -->
+  <!-- /* THYMELEAF: 서버 메시지 출력 영역 — th:if="${message}" */ -->
+  <div class="toast-container" role="status" aria-live="polite">
+    <!-- 더미 성공 알림 (실제 운영 시 제거하거나 서버에서 조건부 렌더) -->
+    <div class="alert alert-success toast">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <span class="alert-content">질문이 성공적으로 등록되었습니다.</span>
+      <button type="button" class="alert-close" aria-label="알림 닫기">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== HERO BANNER ==================== -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <h1 id="hero-heading">궁금한 건 일단 남겨두세요</h1>
+      <p>질문을 쌓아두면, 언젠가 누군가 답해주는 질문 저장소. 코딩 중 막혔다면 Q-Box에 남겨보세요.</p>
+      <a href="form.html" class="btn btn-primary btn-lg">
+        <!-- /* THYMELEAF: th:href="@{/question/form}" */ -->
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        질문 남기기
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="main-content" id="main-content">
+    <div class="container content-narrow">
+
+      <div class="section-header">
+        <h2 class="section-title">최신 질문</h2>
+        <span style="font-size:0.875rem;color:var(--color-text-muted);">
+          <!-- /* THYMELEAF: th:text="${totalCount} + '개의 질문'" */ -->
+          총 5개의 질문
+        </span>
+      </div>
+
+      <!-- ── Question List ── -->
+      <!-- /* THYMELEAF: 질문 목록 반복 시작 — th:each="question : ${questions}" */ -->
+      <div class="question-list">
+
+        <!-- 더미 질문 1 -->
+        <a href="detail.html" class="question-card">
+          <!-- /* THYMELEAF: th:href="@{/question/{id}(id=${question.id})}" */ -->
+          <div class="question-card-header">
+            <h3 class="question-card-title">
+              <!-- /* THYMELEAF: th:text="${question.title}" */ -->
+              Spring Boot에서 JPA N+1 문제 해결 방법이 궁금합니다
+            </h3>
+            <span class="badge badge-answered">답변 완료</span>
+            <!-- /* THYMELEAF: th:if="${question.answerCount > 0}" → badge-answered, 아니면 badge-waiting */ -->
+          </div>
+          <div class="question-card-meta">
+            <span>
+              <!-- /* THYMELEAF: th:text="${question.author}" */ -->
+              김개발
+            </span>
+            <span class="separator" aria-hidden="true"></span>
+            <time datetime="2025-01-15">
+              <!-- /* THYMELEAF: th:text="${#temporals.format(question.createdAt, 'yyyy-MM-dd')}" */ -->
+              2025-01-15
+            </time>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="answer-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <!-- /* THYMELEAF: th:text="${question.answerCount}" */ -->
+              3
+            </span>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="view-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              <!-- /* THYMELEAF: th:text="${question.viewCount}" */ -->
+              128
+            </span>
+          </div>
+        </a>
+
+        <!-- 더미 질문 2 -->
+        <a href="detail.html" class="question-card">
+          <div class="question-card-header">
+            <h3 class="question-card-title">React useEffect 클린업 함수 정확한 동작 원리</h3>
+            <span class="badge badge-answered">답변 완료</span>
+          </div>
+          <div class="question-card-meta">
+            <span>박프론트</span>
+            <span class="separator" aria-hidden="true"></span>
+            <time datetime="2025-01-14">2025-01-14</time>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="answer-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              1
+            </span>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="view-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              <!-- /* THYMELEAF: th:text="${question.viewCount}" */ -->
+              128
+            </span>
+          </div>
+        </a>
+
+        <!-- 더미 질문 3 -->
+        <a href="detail.html" class="question-card">
+          <div class="question-card-header">
+            <h3 class="question-card-title">Docker Compose에서 Spring + MySQL 연동 시 connection refused 에러</h3>
+            <span class="badge badge-waiting">답변 대기</span>
+          </div>
+          <div class="question-card-meta">
+            <span>이백엔드</span>
+            <span class="separator" aria-hidden="true"></span>
+            <time datetime="2025-01-13">2025-01-13</time>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="answer-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              0
+            </span>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="view-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              <!-- /* THYMELEAF: th:text="${question.viewCount}" */ -->
+              128
+            </span>
+          </div>
+        </a>
+
+        <!-- 더미 질문 4 -->
+        <a href="detail.html" class="question-card">
+          <div class="question-card-header">
+            <h3 class="question-card-title">JavaScript 클로저와 this 바인딩의 차이를 쉽게 설명해 주세요</h3>
+            <span class="badge badge-waiting">답변 대기</span>
+          </div>
+          <div class="question-card-meta">
+            <span>최주니어</span>
+            <span class="separator" aria-hidden="true"></span>
+            <time datetime="2025-01-12">2025-01-12</time>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="answer-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              0
+            </span>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="view-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              <!-- /* THYMELEAF: th:text="${question.viewCount}" */ -->
+              128
+            </span>
+          </div>
+        </a>
+
+        <!-- 더미 질문 5 -->
+        <a href="detail.html" class="question-card">
+          <div class="question-card-header">
+            <h3 class="question-card-title">Git rebase와 merge 중 팀 프로젝트에 뭐가 더 나을까요?</h3>
+            <span class="badge badge-answered">답변 완료</span>
+          </div>
+          <div class="question-card-meta">
+            <span>정시니어</span>
+            <span class="separator" aria-hidden="true"></span>
+            <time datetime="2025-01-11">2025-01-11</time>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="answer-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              2
+            </span>
+            <span class="separator" aria-hidden="true"></span>
+            <span class="view-count">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              <!-- /* THYMELEAF: th:text="${question.viewCount}" */ -->
+              128
+            </span>
+          </div>
+        </a>
+
+      </div>
+      <!-- /* /THYMELEAF: 질문 목록 반복 끝 */ -->
+
+      <!-- ── Pagination ── -->
+      <!-- /* THYMELEAF: 페이지네이션 — th:if="${totalPages > 1}" */ -->
+      <nav class="pagination" aria-label="페이지 네비게이션">
+        <button class="pagination-btn" disabled aria-label="이전 페이지">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <!-- /* THYMELEAF: th:each="page : ${#numbers.sequence(0, totalPages - 1)}" */ -->
+        <a href="#" class="pagination-btn active" aria-current="page">1</a>
+        <a href="#" class="pagination-btn">2</a>
+        <a href="#" class="pagination-btn">3</a>
+        <!-- /* /THYMELEAF */ -->
+        <button class="pagination-btn" aria-label="다음 페이지">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </nav>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER (partial include) ==================== -->
+  <!-- /* THYMELEAF: <div th:replace="~{_partials/footer :: footer}"></div> */ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Q-Box. 질문을 쌓아두면, 언젠가 누군가 답해주는 질문 저장소.</p>
+      <p>지식 공유 커뮤니티</p>
+    </div>
+  </footer>
+
+  <script src="../static/js/app.js"></script>
+  <!-- /* THYMELEAF: th:src="@{../static/js/app.js}" */ -->
+</body>
+</html>
