@@ -1,10 +1,5 @@
-<!-- ============================================================
-     Q-Box — _partials/header.html
-     공통 헤더 네비게이션 partial
-     Thymeleaf: th:replace="~{_partials/header :: header}"
-     ============================================================ -->
 
-<header class="site-header" role="banner">
+<header class="site-header" th:fragment="header">
   <div class="container">
 
     <!-- ── Logo ── -->
@@ -21,7 +16,7 @@
         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <span>홈</span>
       </a>
-      <a href="../form.html" class="nav-link">
+      <a href="/board/question/form" class="nav-link">
         <!-- /* THYMELEAF: th:href="@{/question/form}" th:classappend="${menu == 'form'} ? 'active'" */ -->
         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
         <span>질문하기</span>
@@ -77,7 +72,7 @@
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>홈</span>
     </a>
-    <a href="../form.html" class="nav-link">
+    <a href="/form.html" class="nav-link">
       <!-- /* THYMELEAF: th:href="@{/question/form}" */ -->
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
       <span>질문하기</span>
