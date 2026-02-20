@@ -2,14 +2,14 @@ package kr.co.spring_project.member.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import lombok.RequiredArgsConstructor;
+import kr.co.spring_project.member.service.MemberService;
 
 @Service
-@RequiredArgsConstructor
-public class MemberServiceImpl extends MemberService{
+public class MemberServiceImpl implements MemberService {
 	
-	@Override
-	public void re;
+	
+
+	
 	
 	
 

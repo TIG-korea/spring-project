@@ -5,10 +5,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.spring_project.member.service.MemberService;
+import lombok.RequiredArgsConstructor;
+
+
+
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/partials")
+@RequiredArgsConstructor
 public class MemberController {
+	
 	private final MemberService memberService;
 	
 	@GetMapping("/signup/form")
