@@ -7,12 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpSession;
 import kr.co.spring_project.board.dto.ReqBoardDTO;
+import kr.co.spring_project.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequestMapping("/board")
 @RequiredArgsConstructor
 public class BoardController {
+	
+	private final BoardService boardService;
 	
 	@GetMapping("/question/form")
 	public String questionForm() {
@@ -29,10 +32,7 @@ public class BoardController {
 		}
 		
 		
-		
-		
-		
-		
+		boardService.write(request, loginUser.getId());
 		
 		
 		return "redirect:/";
