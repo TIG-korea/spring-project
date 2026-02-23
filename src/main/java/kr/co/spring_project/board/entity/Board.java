@@ -21,7 +21,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Board {
+public class Board extends BaseTimeEntity {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -41,8 +42,7 @@ public class Board {
 	
 	private int viewCount;
 	
-	private LocalDateTime createdAt;
-	private LocalDateTime updatedAt;
+	
 	
 	
 
