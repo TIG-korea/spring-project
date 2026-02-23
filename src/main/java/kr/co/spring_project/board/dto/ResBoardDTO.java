@@ -1,20 +1,27 @@
 package kr.co.spring_project.board.dto;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReqBoardDTO {
+
+public class ResBoardDTO {
 	
 	private Long id;
 	private String title;
 	private String content;
+	private String writerName; // nickName
+	private LocalDateTime createdAt;
+	private int viewCount;
 	
-//	private String nickname; 로그인한 아이디에 닉네임이 바로 들어가게 구현 할 예정
+	
+	
 
 }
