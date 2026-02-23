@@ -56,37 +56,34 @@
       <div class="question-list">
 
         <!-- 더미 질문 1 -->
-        <a href="detail.html" class="question-card">
+        <a href="detail.html" class="question-card" th:each="board : ${list}">
           <!-- /* THYMELEAF: th:href="@{/question/{id}(id=${question.id})}" */ -->
           <div class="question-card-header">
-            <h3 class="question-card-title">
+            <h3 class="question-card-title" th:text="${board.title}">
               <!-- /* THYMELEAF: th:text="${question.title}" */ -->
-              Spring Boot에서 JPA N+1 문제 해결 방법이 궁금합니다
             </h3>
             <span class="badge badge-answered">답변 완료</span>
             <!-- /* THYMELEAF: th:if="${question.answerCount > 0}" → badge-answered, 아니면 badge-waiting */ -->
           </div>
           <div class="question-card-meta">
-            <span>
+            <span th:text="${board.writerName}">
               <!-- /* THYMELEAF: th:text="${question.author}" */ -->
-              김개발
             </span>
             <span class="separator" aria-hidden="true"></span>
-            <time datetime="2025-01-15">
-              <!-- /* THYMELEAF: th:text="${#temporals.format(question.createdAt, 'yyyy-MM-dd')}" */ -->
-              2025-01-15
-            </time>
+            <time th:datetime="${board.createdAt}"
+            	  th:text="${#temporals.format(board.createdAt, 'yyyy-MM-dd')}"> 
+            </time> 
             <span class="separator" aria-hidden="true"></span>
             <span class="answer-count">
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <!-- /* THYMELEAF: th:text="${question.answerCount}" */ -->
               3
             </span>
-            <span class="separator" aria-hidden="true"></span>
+            <span class="separator" aria-hidden="true" ></span>
             <span class="view-count">
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
               <!-- /* THYMELEAF: th:text="${question.viewCount}" */ -->
-              128
+              <span th:text="${board.viewCount}"></span>
             </span>
           </div>
         </a>
