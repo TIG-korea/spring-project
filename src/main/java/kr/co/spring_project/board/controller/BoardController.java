@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import kr.co.spring_project.board.dto.ReqBoardDTO;
 import kr.co.spring_project.board.dto.ResBoardDTO;
 import kr.co.spring_project.board.service.BoardService;
+import kr.co.spring_project.member.dto.ResLoginDTO;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -69,5 +70,4 @@ public class BoardController {
 		
 		return "redirect:/";
 	}
-
-//}
+}
