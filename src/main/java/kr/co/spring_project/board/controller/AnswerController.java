@@ -19,7 +19,7 @@ public class AnswerController {
 	// 특정 게시물(boardId)에 답변 등록하는 API
     @PostMapping("/{boardId}/answers")
     public String createAnswer(@PathVariable Long boardId, @RequestBody AnswerRequestDTO dto) {
-        answerService.createAnswer(boardId, dto);
+        answerService.createanswer(boardId, dto);
         return "답변 등록 완료!";
 }
 }
