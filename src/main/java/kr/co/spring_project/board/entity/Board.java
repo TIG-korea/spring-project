@@ -32,14 +32,10 @@ public class Board extends BaseTimeEntity {
 	@Lob
 	private String content;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "writer_id")
-//	private Member writerId; 나중에 합치고 다시 생성
-	
-	// 임시 엔티티
-	@Column(name = "writer_id", nullable = false)
-    private Long writerId;
-	
+	@ManyToOne
+	@JoinColumn(name = "writer_id")
+	private Member writerId;
+
 	private int viewCount;
 	
 	
