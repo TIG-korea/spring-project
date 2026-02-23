@@ -35,7 +35,6 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 		Board board = Board.builder()
-					  .id(writer.getId())
 					  .title(request.getTitle())
 					  .content(request.getContent())
 					  .writerId(writer)

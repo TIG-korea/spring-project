@@ -32,7 +32,11 @@ public class BoardController {
 		
 		int blockSize = 3;
 		
-		int startPage = ((currentPage - 1 / blockSize) * blockSize + 1);
+		int startPage = ((currentPage - 1) / blockSize) * blockSize + 1;
+		
+		if(startPage < 1) {
+			startPage = 1;
+		}
 		
 		int endPage = startPage + blockSize - 1;
 		

@@ -93,7 +93,7 @@
 
       <!-- ── Pagination ── -->
       <!-- /* THYMELEAF: 페이지네이션 — th:if="${totalPages > 1}" */ -->
-      <nav class="pagination" aria-label="페이지 네비게이션">
+      <nav class="pagination" th:if="${totalPage > 0}" aria-label="페이지 네비게이션">
         <button class="pagination-btn" th:disabled="${currentPage <= 1}" aria-label="이전 페이지"
         th:onclick="${currentPage <= 1} ? null : 'location.href=\'/board?page=' + (${currentPage - 1}) + '\''">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
