@@ -1,12 +1,12 @@
 package kr.co.spring_project.member.service;
 
-import kr.co.spring_project.member.dto.ReLoginDTO;
+import kr.co.spring_project.member.dto.ReqLoginDTO;
 import kr.co.spring_project.member.dto.ResLoginDTO;
-import kr.co.spring_project.member.dto.ResignupDTO;
+import kr.co.spring_project.member.dto.ReqsignupDTO;
 
 public interface MemberService {
-	void signup(ResignupDTO request);
-	ResLoginDTO login(ReLoginDTO request);
+	void signup(ReqsignupDTO request);
+	ResLoginDTO login(ReqLoginDTO request);
 	
 	
 

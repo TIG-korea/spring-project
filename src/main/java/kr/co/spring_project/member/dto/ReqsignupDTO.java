@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class ResignupDTO {
+public class ReqsignupDTO {
 	private String userId;
 	private String username;
 	private String email;
