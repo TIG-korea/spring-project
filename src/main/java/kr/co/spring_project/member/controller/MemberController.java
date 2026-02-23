@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpSession;
 import kr.co.spring_project.member.dto.ReqLoginDTO;
-import kr.co.spring_project.member.dto.ReqSignupDTO;
+import kr.co.spring_project.member.dto.ReqsignupDTO;
 import kr.co.spring_project.member.dto.ResLoginDTO;
 import kr.co.spring_project.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/signup")
-	public String signup(ReqSignupDTO request){
+	public String signup(ReqsignupDTO request){
 		memberService.signup(request);
 		return "redirect:/member/login/form";
 	}

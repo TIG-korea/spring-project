@@ -13,12 +13,12 @@ import lombok.Setter;
 @Data
 public class ReqsignupDTO {
 	private String userId;
-	private String username;
+	private String userName;
 	private String email;
 	private String number;
 	private String password;
-	private String checkPassword;
-	private String nickName;
+	private String passwordConfirm;
+	private String nickname;
 	
 	
 
