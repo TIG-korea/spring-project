@@ -51,7 +51,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		Pageable pageable = PageRequest.of(page, 5, Sort.by("id").descending());
 		
-		Page<Board> boardList = boardRepository.findByBoardTypeOrderByIdDesc(pageable);
+		Page<Board> boardList = boardRepository.findAllByOrderByIdDesc(pageable);
 		
 		List<ResBoardDTO> list = new ArrayList<>();
 		

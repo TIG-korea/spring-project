@@ -47,7 +47,7 @@ public class BoardController {
 		model.addAttribute("endPage", endPage);
 		
 		
-		return "/board";
+		return "/home";
 	}
 	
 	@GetMapping("/question/form")
