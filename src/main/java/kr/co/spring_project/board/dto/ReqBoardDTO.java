@@ -14,6 +14,7 @@ public class ReqBoardDTO {
 	private Long id;
 	private String title;
 	private String content;
+	
 //	private String nickname; 로그인한 아이디에 닉네임이 바로 들어가게 구현 할 예정
 
 }
