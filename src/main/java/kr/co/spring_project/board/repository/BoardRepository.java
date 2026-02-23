@@ -8,6 +8,6 @@ import kr.co.spring_project.board.entity.Board;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
 	
-	Page<Board> findByBoardTypeOrderByIdDesc(Pageable pageable); 
+	Page<Board> findAllByOrderByIdDesc(Pageable pageable); 
 
 }
