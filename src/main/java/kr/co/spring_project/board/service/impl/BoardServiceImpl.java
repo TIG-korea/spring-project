@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -62,7 +61,7 @@ public class BoardServiceImpl implements BoardService {
 								   .title(b.getTitle())
 								   .content(b.getContent())
 								   .createdAt(b.getCreatedAt())
-								   .writerName(b.getWriterId().getNickName()) // Member 엔티티의 nickName
+								   .writerName(b.getWriterId().getNickname()) // Member 엔티티의 nickname
 								   .viewCount(b.getViewCount())
 								   .build();
 			
