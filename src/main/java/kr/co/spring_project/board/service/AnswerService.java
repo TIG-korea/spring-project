@@ -6,4 +6,6 @@ public interface AnswerService {
 
     void createanswer(Long boardId, AnswerRequestDTO request);
     
+    void deleteAnswer(Long answerId);
+    
 }
