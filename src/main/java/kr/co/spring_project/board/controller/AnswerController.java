@@ -1,12 +1,8 @@
 package kr.co.spring_project.board.controller;
 
-
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.spring_project.board.dto.AnswerRequestDTO;
@@ -16,11 +12,22 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping()
-public class AnswerController {
+
+
+
+// 일단 임의로 지정
+public class AnswerController {   
 	private final AnswerService answerService;
 	
+	@PostMapping("/create/{boardId}")
+	public String create(@PathVariable Long boardId, AnswerRequestDTO request) {
+		
+		answerService.createanswer(boardId, request);
+		
+		return "redirect:/board/detail/" + boardId;
+	}
 	
-	
+
 }
     
     
